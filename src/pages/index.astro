@@ -27,14 +27,14 @@ import Layout from "../layouts/Layout.astro";
         <span class="label-text-alt">Uyku Zamanı (dk)</span>
       </label>
 
-      <div class="form-control w-1/2 my-4">
+      <div class="form-control w-1/2  my-4">
         <label class="label cursor-pointer">
           <span class="label-text">Dara</span>
           <input id="dara" type="checkbox" checked />
         </label>
       </div>
 
-      <div class="form-control w-1/2 max-w-xs">
+      <div class="form-control  max-w-xs">
         <input type="number" placeholder="Offset Değeri" id="offset" min="0" max="150" />
         <label class="label">
           <span class="label-text-alt">0-150 arası</span>
@@ -43,24 +43,21 @@ import Layout from "../layouts/Layout.astro";
 
       <br />
       <input type="hidden" id="field8" name="field8" value="77" />
-      <input id="gonderDugme" type="submit" value="gönder!" class="btn btn-block my-4" />
+      <input id="gonderDugme" type="submit" value="gönder" class="btn btn-block my-4" />
     </form>
   </main>
 </Layout>
 
 <style>
   main {
-    margin: auto;
-    padding: 1.5rem;
-    max-width: 60ch;
+    @apply max-w-md m-auto p-5;
   }
   h1 {
-    @apply text-2xl font-bold tracking-tight sm:text-center sm:text-6xl;
+    @apply text-xl font-bold tracking-tight sm:text-center sm:text-6xl;
   }
 
   .talimatlar {
-    @apply m-4 p-4;
-    background-color: lightgoldenrodyellow;
+    @apply m-4 p-4 bg-slate-100;
   }
 
   form {
@@ -69,14 +66,14 @@ import Layout from "../layouts/Layout.astro";
   input {
     @apply input input-bordered input-lg w-full max-w-xs ;
   }
-  #offset {
-    @apply input input-bordered w-full max-w-xs;
-  }
   #uyku {
     @apply select select-bordered select-lg max-w-xs;
   }
   #dara {
-    @apply toggle toggle-lg;
+    @apply toggle toggle-lg ;
+  }
+  #offset {
+    @apply input input-bordered input-lg max-w-xs;
   }
 </style>
 <script>
