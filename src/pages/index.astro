@@ -9,76 +9,83 @@ import Layout from "../layouts/Layout.astro";
       <code>Write Api</code> ile <strong>cihaz ayar</strong> güncelleme
     </p>
 
-    <form action="https://api.thingspeak.com/update" method="get" class="form-example" autocomplete="on">
+    <form action="https://api.thingspeak.com/update" method="get" class="form-example" autocomplete="off">
       <div class="form-control mb-4">
         <label for="api_key">WriteApi</label>
         <input type="text" placeholder="23ZLGOBBU9TWHG2H" id="api_key" name="api_key" required minlength="16" maxlength="16" size="16" />
         <label class="label">
-          <span class="label-text-alt mb-4 text-cyan-600">16 karakter</span>
+          <span class="label-text-alt mb-4 text-info">16 karakter</span>
         </label>
       </div>
 
-      <label class="label">
-        <span class="label-text-alt">Uyku Zamanı</span>
-      </label>
-      <select id="uyku">
-        <option disabled selected>Uyku Zamanı</option>
-        <option>15</option>
-        <option>30</option>
-        <option>45</option>
-        <option>60</option>
-      </select>
-      <label class="label mb-4">
-        <span class="label-text-alt text-cyan-600">dakika</span>
-      </label>
+      <div class="form-piece">
+        <label class="label">
+          <span class="label-text-alt">Uyku Zamanı</span>
+        </label>
+        <select id="uyku" class="select select-primary select-lg w-full max-w-xs">
+          <option disabled selected>Uyku Zamanı</option>
+          <option>15</option>
+          <option>30</option>
+          <option>45</option>
+          <option>60</option>
+        </select>
+        <label class="label mb-4">
+          <span class="label-text-alt text-info">dakika</span>
+        </label>
+      </div>
 
-      <div class="form-control w-1/2 my-8">
+      <div class="form-piece">
         <label class="label cursor-pointer">
           <span class="label-text">Dara</span>
-          <input id="dara" type="checkbox" checked  />
+          <input id="dara" type="checkbox" checked />
         </label>
       </div>
 
-      <div class="form-control max-w-xs">
+      <div class="form-control max-w-xs mt-8">
         <input type="number" placeholder="Offset Değeri" id="offset" min="0" max="150" />
         <label class="label">
-          <span class="label-text-alt text-cyan-600">0-150 arası</span>
+          <span class="label-text-alt text-info">0-150 arası</span>
         </label>
       </div>
-
-      <br />
       <input type="hidden" id="field8" name="field8" value="" />
-      <input id="gonderDugme" type="submit" value="gönder" class="btn btn-block my-4" />
+      <input id="gonderDugme" type="submit" value="gönder" />
     </form>
   </main>
 </Layout>
 
 <style>
   main {
-    @apply max-w-sm m-auto p-5;
+    @apply max-w-sm m-auto p-5 text-primary;
+    background-color: #e0d3c3;
   }
   h1 {
-    @apply text-xl font-bold tracking-tight sm:text-center sm:text-6xl;
+    @apply text-xl text-primary font-bold tracking-tight sm:text-center sm:text-6xl;
   }
 
   .talimatlar {
-    @apply m-4 p-4 bg-slate-100;
+    @apply m-4 p-4 bg-info text-accent;
   }
 
   form {
     @apply m-2 py-6;
   }
+  .form-piece {
+    @apply form-control w-1/2 my-8;
+  }
   input {
-    @apply input input-bordered input-lg w-full max-w-xs;
+    @apply input input-bordered input-primary input-lg w-full max-w-xs;
   }
   #uyku {
-    @apply select select-bordered select-lg max-w-xs;
+    /* @apply select  max-w-xs py-8; */
   }
   #dara {
-    @apply toggle toggle-lg;
+    @apply toggle toggle-primary toggle-lg;
   }
   #offset {
-    @apply input input-bordered input-lg max-w-xs;
+    @apply input input-bordered input-primary input-lg max-w-xs;
+  }
+  #gonderDugme {
+    @apply btn btn-block btn-primary my-4;
   }
 </style>
 <script>
@@ -87,12 +94,12 @@ import Layout from "../layouts/Layout.astro";
     fieldOlustur();
   });
 
-  function fieldOlustur () {
+  function fieldOlustur() {
     const uykuDeger = isNumber(uyku.value) ? uyku.value : "Q";
     const offsetDeger = offset.value == "" ? "Q" : offset.value;
     const daraDeger = dara.checked ? "1" : "0";
     field8.value = uykuDeger + "W" + daraDeger + "W" + offsetDeger;
-  };
+  }
   const isNumber = (n) => {
     return !isNaN(n);
   };
