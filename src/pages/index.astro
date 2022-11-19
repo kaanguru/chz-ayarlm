@@ -4,30 +4,35 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Cihaz Ayarlama">
   <main>
-    <h1>Cihaz Ayarlama</h1>
+    <h1>KTS Ayarlama</h1>
     <p class="talimatlar">
-      <code>Write Api</code> gibi bilgilerle <strong>Api istek</strong> oluşturma
+      <code>Write Api</code> ile <strong>cihaz ayar</strong> güncelleme
     </p>
 
     <form action="https://api.thingspeak.com/update" method="get" class="form-example" autocomplete="on">
-      <div class="form-control">
-        <label for="api_key">WriteApi (16 karakter):</label>
+      <div class="form-control mb-4">
+        <label for="api_key">WriteApi</label>
         <input type="text" placeholder="23ZLGOBBU9TWHG2H" id="api_key" name="api_key" required minlength="16" maxlength="16" size="16" />
+        <label class="label">
+          <span class="label-text-alt mb-4 text-cyan-600">16 karakter</span>
+        </label>
       </div>
 
-      <div class="divider"></div>
+      <label class="label">
+        <span class="label-text-alt">Uyku Zamanı</span>
+      </label>
       <select id="uyku">
-        <option disabled selected>Uyku Zamanı (dk)</option>
+        <option disabled selected>Uyku Zamanı</option>
         <option>15</option>
         <option>30</option>
         <option>45</option>
         <option>60</option>
       </select>
-      <label class="label">
-        <span class="label-text-alt">Uyku Zamanı (dk)</span>
+      <label class="label mb-4">
+        <span class="label-text-alt text-cyan-600">dakika</span>
       </label>
 
-      <div class="form-control w-1/2 my-4">
+      <div class="form-control w-1/2 my-8">
         <label class="label cursor-pointer">
           <span class="label-text">Dara</span>
           <input id="dara" type="checkbox" checked  />
@@ -37,12 +42,12 @@ import Layout from "../layouts/Layout.astro";
       <div class="form-control max-w-xs">
         <input type="number" placeholder="Offset Değeri" id="offset" min="0" max="150" />
         <label class="label">
-          <span class="label-text-alt">0-150 arası</span>
+          <span class="label-text-alt text-cyan-600">0-150 arası</span>
         </label>
       </div>
 
       <br />
-      <input type="hidden" id="field8" name="field8" value="77" />
+      <input type="hidden" id="field8" name="field8" value="" />
       <input id="gonderDugme" type="submit" value="gönder" class="btn btn-block my-4" />
     </form>
   </main>
@@ -50,7 +55,7 @@ import Layout from "../layouts/Layout.astro";
 
 <style>
   main {
-    @apply max-w-md m-auto p-5;
+    @apply max-w-sm m-auto p-5;
   }
   h1 {
     @apply text-xl font-bold tracking-tight sm:text-center sm:text-6xl;
@@ -61,7 +66,7 @@ import Layout from "../layouts/Layout.astro";
   }
 
   form {
-    @apply m-5 border-solid border-t-8 border-x-indigo-100 py-6;
+    @apply m-2 py-6;
   }
   input {
     @apply input input-bordered input-lg w-full max-w-xs;
@@ -82,7 +87,7 @@ import Layout from "../layouts/Layout.astro";
     fieldOlustur();
   });
 
-  const fieldOlustur = () => {
+  function fieldOlustur () {
     const uykuDeger = isNumber(uyku.value) ? uyku.value : "Q";
     const offsetDeger = offset.value == "" ? "Q" : offset.value;
     const daraDeger = dara.checked ? "1" : "0";
