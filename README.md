@@ -1,50 +1,32 @@
-# Welcome to [Astro](https://astro.build)
+https://daisyui.com/components/
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/withastro/astro/tree/latest/examples/basics)
+İstediğim sonuç şu: 
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+https://api.thingspeak.com/update?api_key=IQ24IXZ3A2ZXE04I&field8=QWQWQ
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+Burada API KEY'i formda kullanıcının girdiği kutudan alacak. 
 
+ApiKey'leri thingspeak belirliyor ve 16 karakter. Veri düzeltme olarak 16 karakter esas alınabilir. 
 
-## 🚀 Project Structure
+Burada Q ve W olması beni etkilemiyor çünki ben kanal 8'e yazdırılan veriyi ele alıyorum. 
 
-Inside of your Astro project, you'll see the following folders and files:
+Alan araları W ile temsil olunuyor. Q alanın boş olduğunu gösteriyor. 
 
-```
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Uyku zamanı dropdown menü olabilir. 15 - 30 - 45 ve 60 şeklinde. Böylece error check gerekmez. 
+Zor oluyorsa elle de girilebilir. 15 ile 60 arası değer olmak  zorunda. 
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+DARA tuşu Radio button şeklinde olabilir. Basıldığında 1 basılmadığında 0 olur. 
+Kanal mesajına 1 veya 0 olarak yazar. 
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+OFFSET değeri de 0 ile 150 arasında bir değer kabul eden bir kutu olacak.
+Mesaja o girilen değer girecek. 
 
-Any static assets, like images, can be placed in the `public/` directory.
+GÖNDER tuşuna basıldığında thingspeak sitesine şu mesaj gidecek. 
 
-## 🧞 Commands
+https://api.thingspeak.com/update?api_key=IQ24IXZ3A2ZXE04I&field8=15W1W20 
 
-All commands are run from the root of the project, from a terminal:
+Açılımı şu: Uyku süresi 15 dakika , DARA ALINACAK (1) , OFFSET değeri de 20 
 
-| Command                | Action                                             |
-| :--------------------- | :------------------------------------------------- |
-| `npm install`          | Installs dependencies                              |
-| `npm run dev`          | Starts local dev server at `localhost:3000`        |
-| `npm run build`        | Build your production site to `./dist/`            |
-| `npm run preview`      | Preview your build locally, before deploying       |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
-| `npm run astro --help` | Get help using the Astro CLI                       |
+Bunu offline bir web sayfası olarak kaydedeceğim. 
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Kullanıcı değerleri girip GÖNDER tuşuna basınca cihazla iyetişime geçecek. 
