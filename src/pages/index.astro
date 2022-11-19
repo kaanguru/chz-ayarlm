@@ -83,7 +83,7 @@ import Layout from "../layouts/Layout.astro";
   });
   const fieldOlustur = () => {
     const uykuDeger = isNumber(uyku.value) ? uyku.value : "Q";
-    const daraDeger = (dara.value = "on" ? 1 : 0);
+    const daraDeger = (dara.value == "on" ? 1 : 0);
     const offsetDeger = offset.value == "" ? "Q" : offset.value;
 
     field8.value = uykuDeger + "W" + daraDeger + "W" + offsetDeger;
