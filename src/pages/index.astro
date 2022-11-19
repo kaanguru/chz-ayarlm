@@ -27,14 +27,14 @@ import Layout from "../layouts/Layout.astro";
         <span class="label-text-alt">Uyku Zamanı (dk)</span>
       </label>
 
-      <div class="form-control w-1/2  my-4">
+      <div class="form-control w-1/2 my-4">
         <label class="label cursor-pointer">
           <span class="label-text">Dara</span>
-          <input id="dara" type="checkbox" checked />
+          <input id="dara" type="checkbox" checked  />
         </label>
       </div>
 
-      <div class="form-control  max-w-xs">
+      <div class="form-control max-w-xs">
         <input type="number" placeholder="Offset Değeri" id="offset" min="0" max="150" />
         <label class="label">
           <span class="label-text-alt">0-150 arası</span>
@@ -64,13 +64,13 @@ import Layout from "../layouts/Layout.astro";
     @apply m-5 border-solid border-t-8 border-x-indigo-100 py-6;
   }
   input {
-    @apply input input-bordered input-lg w-full max-w-xs ;
+    @apply input input-bordered input-lg w-full max-w-xs;
   }
   #uyku {
     @apply select select-bordered select-lg max-w-xs;
   }
   #dara {
-    @apply toggle toggle-lg ;
+    @apply toggle toggle-lg;
   }
   #offset {
     @apply input input-bordered input-lg max-w-xs;
@@ -81,11 +81,11 @@ import Layout from "../layouts/Layout.astro";
   gonderDugme.addEventListener("click", () => {
     fieldOlustur();
   });
+
   const fieldOlustur = () => {
     const uykuDeger = isNumber(uyku.value) ? uyku.value : "Q";
-    const daraDeger = (dara.value == "on" ? 1 : 0);
     const offsetDeger = offset.value == "" ? "Q" : offset.value;
-
+    const daraDeger = dara.checked ? "1" : "0";
     field8.value = uykuDeger + "W" + daraDeger + "W" + offsetDeger;
   };
   const isNumber = (n) => {
